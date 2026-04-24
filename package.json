@@ -1,0 +1,22 @@
+{
+  "name": "sudoku-sprint-phaser",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5724",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "calibrate:difficulty": "node scripts/calibrate-difficulty.mjs"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^6.0.0",
+    "vitest": "^3.2.4"
+  }
+}
