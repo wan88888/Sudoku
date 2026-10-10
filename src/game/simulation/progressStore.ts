@@ -1,4 +1,5 @@
 import { START_STAMINA, STORAGE_KEY, TOTAL_LEVELS, clamp } from "./levelConfig";
+import { normalizeDailyRewards, type DailyRewardsState } from "./dailyRewards";
 
 const ACTIVE_SESSION_STORAGE_KEY = `${STORAGE_KEY}-active-session`;
 export const STORAGE_STATUS_EVENT = "sudoku-storage-status";
@@ -64,6 +65,7 @@ export interface ProgressState {
   highestUnlocked: number;
   completed: number[];
   stamina: number;
+  dailyRewards?: DailyRewardsState;
 }
 
 export interface ActiveSessionState {
@@ -81,6 +83,7 @@ interface PersistedProgress {
   highestUnlocked?: unknown;
   completed?: unknown;
   stamina?: unknown;
+  dailyRewards?: unknown;
 }
 
 interface PersistedActiveSession {
@@ -128,6 +131,7 @@ export function loadProgress(): ProgressState {
       highestUnlocked: Math.max(highestUnlocked, clamp(maxCompleted + 1, 1, TOTAL_LEVELS)),
       completed,
       stamina: clamp(Number.isFinite(parsedStamina) ? parsedStamina : START_STAMINA, 0, 99),
+      ...(parsed.dailyRewards ? { dailyRewards: normalizeDailyRewards(parsed.dailyRewards) } : {}),
     };
   } catch (error) {
     return fallback;
@@ -229,6 +233,7 @@ export function markLevelCompleted(progress: ProgressState, level: number): Prog
   completedSet.add(level);
 
   return {
+    ...progress,
     completed: Array.from(completedSet).sort((a, b) => a - b),
     highestUnlocked: clamp(Math.max(progress.highestUnlocked, level + 1), 1, TOTAL_LEVELS),
     stamina: progress.stamina,

@@ -11,10 +11,15 @@ import {
 } from "../game/simulation/progressStore";
 import { trackEvent } from "../game/analytics/telemetry";
 import { SudokuEngine } from "../game/simulation/sudokuEngine";
+import { dailyRewardStatus, localDay, normalizeDailyRewards, WHEEL_REWARDS, type DailyRewardResult } from "../game/simulation/dailyRewards";
 
 export interface HomeModel {
   title: string;
   stamina: number;
+  completed: number;
+  level: number;
+  totalLevels: number;
+  daily: ReturnType<typeof dailyRewardStatus>;
 }
 
 export interface LevelCardModel extends LevelConfig {
@@ -120,11 +125,40 @@ export class GameBridge {
     this.activeSession = loadActiveSession();
   }
 
-  getHomeModel(): HomeModel {
+  getHomeModel(now = new Date()): HomeModel {
+    this.progress = loadProgress();
     return {
       title: "Sudoku Sprint",
       stamina: this.progress.stamina,
+      completed: this.progress.completed.length,
+      level: this.progress.highestUnlocked,
+      totalLevels: TOTAL_LEVELS,
+      daily: dailyRewardStatus(normalizeDailyRewards(this.progress.dailyRewards), now),
     };
+  }
+
+  claimDailyReward(kind: "check-in" | "spin", now = new Date(), random = Math.random): DailyRewardResult {
+    this.progress = loadProgress();
+    const state = normalizeDailyRewards(this.progress.dailyRewards);
+    const status = dailyRewardStatus(state, now);
+    if (!(kind === "check-in" ? status.checkInAvailable : status.spinAvailable)) {
+      return { type: "already-claimed", added: 0, prize: 0 };
+    }
+    if (this.progress.stamina >= 99) return { type: "full", added: 0, prize: 0 };
+    const spinIndex = kind === "spin" ? Math.min(WHEEL_REWARDS.length - 1, Math.max(0, Math.floor(random() * WHEEL_REWARDS.length))) : undefined;
+    const prize = spinIndex === undefined ? status.reward : WHEEL_REWARDS[spinIndex];
+    const added = Math.min(prize, 99 - this.progress.stamina);
+    if (kind === "check-in") {
+      state.checkInDay = localDay(now);
+      state.streak = status.day;
+    } else {
+      state.spinDay = localDay(now);
+      state.spinIndex = spinIndex!;
+    }
+    // Entitlement and balance share one saved record; animation is presentation only.
+    this.progress = { ...this.progress, stamina: this.progress.stamina + added, dailyRewards: state };
+    saveProgress(this.progress);
+    return { type: "claimed", added, prize, spinIndex };
   }
 
   getLevelModel(): LevelModel {
