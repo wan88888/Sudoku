@@ -1,9 +1,15 @@
+import { BoardView } from "../../game/ui/BoardView";
+import { loadSettings, type Settings } from "../../game/settings";
+import { bindKeypadInput } from "../../game/input/keypadInput";
 import Phaser from "../phaser";
 import { bridge } from "../runtime";
 import type { BridgeResult, CompletionSummary, FailureSummary, SessionSnapshot } from "../GameBridge";
 import { trackEvent } from "../../game/analytics/telemetry";
 
 export class GameScene extends Phaser.Scene {
+  private boardView: BoardView | null = null;
+  private settings: Settings = loadSettings();
+  private readonly onShutdown = () => this.cleanup();
   private errorTimer: number | null;
   private nextLevel: number | null;
   private session: SessionSnapshot | null;
@@ -25,8 +31,10 @@ export class GameScene extends Phaser.Scene {
   private levelsButton: HTMLButtonElement | null;
   private resultMode: "success" | "failed" | null;
   private highlightedNumber: number | null;
-  private longPressTimer: number | null;
-  private longPressButton: HTMLButtonElement | null;
+  private unbindKeypad?: () => void;
+  private feedback: HTMLElement | null = null;
+  private staminaText: HTMLElement | null = null;
+  private restartButton: HTMLButtonElement | null = null;
   private onBackClick?: () => void;
   private onEraseClick?: () => void;
   private onHintClick?: () => void;
@@ -35,9 +43,6 @@ export class GameScene extends Phaser.Scene {
   private onNextLevelClick?: () => void;
   private onLevelsClick?: () => void;
   private onBoardClick?: (event: MouseEvent) => void;
-  private onKeypadClick?: (event: MouseEvent) => void;
-  private onKeypadDown?: (event: MouseEvent) => void;
-  private onKeypadUp?: (event: MouseEvent) => void;
   private onKeyboard?: (event: KeyboardEvent) => void;
 
   constructor() {
@@ -63,8 +68,6 @@ export class GameScene extends Phaser.Scene {
     this.levelsButton = null;
     this.resultMode = null;
     this.highlightedNumber = null;
-    this.longPressTimer = null;
-    this.longPressButton = null;
   }
 
   create(data: { level?: number } = {}): void {
@@ -78,11 +81,16 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    this.settings = loadSettings();
+    this.highlightedNumber = null;
+    this.resultMode = null;
+    this.nextLevel = null;
     this.session = session;
     this.ui = this.add.dom(215, 430).createFromHTML(gameTemplate(session));
 
     this.boardElement = getById<HTMLElement>(this.ui, "board");
     this.keypadElement = getById<HTMLElement>(this.ui, "keypad");
+    this.boardView = new BoardView(this.boardElement);
 
     this.levelTag = getById<HTMLElement>(this.ui, "game-level-tag");
     this.mistakeText = getById<HTMLElement>(this.ui, "mistake-count");
@@ -99,13 +107,18 @@ export class GameScene extends Phaser.Scene {
     this.nextLevelButton = getById<HTMLButtonElement>(this.ui, "next-level-button");
     this.levelsButton = getById<HTMLButtonElement>(this.ui, "levels-button");
 
+    this.feedback = getById<HTMLElement>(this.ui, "game-feedback");
+    this.staminaText = getById<HTMLElement>(this.ui, "game-stamina");
+    this.restartButton = getById<HTMLButtonElement>(this.ui, "restart-button");
     this.bindEvents();
     this.setNoteMode(false);
     this.renderHeader();
     this.renderBoard();
 
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanup());
-    this.events.once(Phaser.Scenes.Events.DESTROY, () => this.cleanup());
+    const failure = bridge.getFailureSummary();
+    if (failure) this.showFailure(failure);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.onShutdown);
+    this.events.once(Phaser.Scenes.Events.DESTROY, this.onShutdown);
   }
 
   bindEvents(): void {
@@ -197,60 +210,11 @@ export class GameScene extends Phaser.Scene {
       this.applyResult(bridge.selectCell(index));
     };
 
-    this.onKeypadClick = (event: MouseEvent) => {
-      const source = event.target;
-      if (!(source instanceof Element) || !this.keypadElement) {
-        return;
-      }
-
-      const target = source.closest(".key-btn");
-      if (!(target instanceof HTMLElement) || !keypadElement.contains(target)) {
-        return;
-      }
-
-      if (this.isResultVisible()) {
-        return;
-      }
-
-      const num = Number(target.dataset.value);
-      if (!Number.isInteger(num)) {
-        return;
-      }
-
-      this.applyResult(this.noteMode ? bridge.toggleNoteSelected(num) : bridge.fillSelected(num));
-    };
-
-    this.onKeypadDown = (event: MouseEvent) => {
-      const source = event.target;
-      if (!(source instanceof Element) || !this.keypadElement) {
-        return;
-      }
-
-      const target = source.closest(".key-btn");
-      if (!(target instanceof HTMLButtonElement)) {
-        return;
-      }
-
-      const num = Number(target.dataset.value);
-      if (!Number.isInteger(num)) {
-        return;
-      }
-
-      this.clearLongPress();
-      this.longPressButton = target;
-      this.longPressTimer = window.setTimeout(() => {
-        this.highlightedNumber = num;
-        this.renderBoard();
-      }, 260);
-    };
-
-    this.onKeypadUp = () => {
-      if (this.highlightedNumber != null) {
-        this.highlightedNumber = null;
-        this.renderBoard();
-      }
-      this.clearLongPress();
-    };
+    this.unbindKeypad = bindKeypadInput(keypadElement, {
+      blocked: () => this.isResultVisible(),
+      input: (value) => this.applyResult(this.noteMode ? bridge.toggleNoteSelected(value) : bridge.fillSelected(value)),
+      highlight: (value) => { this.highlightedNumber = this.settings.longPressHighlight ? value : null; this.renderBoard(); },
+    });
 
     this.onKeyboard = (event: KeyboardEvent) => {
       if (this.isResultVisible()) {
@@ -298,16 +262,13 @@ export class GameScene extends Phaser.Scene {
     this.eraseButton.addEventListener("click", this.onEraseClick);
     this.hintButton.addEventListener("click", this.onHintClick);
     this.resetButton.addEventListener("click", this.onResetClick);
+    this.restartButton?.addEventListener("click", this.onResetClick);
     this.noteButton.addEventListener("click", this.onNoteModeClick);
 
     this.nextLevelButton.addEventListener("click", this.onNextLevelClick);
     this.levelsButton.addEventListener("click", this.onLevelsClick);
 
     boardElement.addEventListener("click", this.onBoardClick);
-    keypadElement.addEventListener("click", this.onKeypadClick);
-    keypadElement.addEventListener("mousedown", this.onKeypadDown);
-    keypadElement.addEventListener("mouseup", this.onKeypadUp);
-    keypadElement.addEventListener("mouseleave", this.onKeypadUp);
 
     keyboard?.on("keydown", this.onKeyboard);
   }
@@ -318,6 +279,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     this.session = result.session;
+    if (this.feedback) this.feedback.textContent = "";
     this.renderHeader();
     this.renderBoard();
 
@@ -340,8 +302,9 @@ export class GameScene extends Phaser.Scene {
     }
 
     if (result.type === "no-stamina") {
-      this.hideResult();
-      this.showToastLikeFailure("体力不足", `继续需要 ${this.session.hintCost} 点体力，请先返回。`);
+      const failure = bridge.getFailureSummary();
+      if (failure) this.showFailure(failure);
+      else if (this.feedback) this.feedback.textContent = "体力不足，暂时无法使用提示。你可以继续手动解题。";
     }
   }
 
@@ -361,68 +324,13 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    if (this.staminaText) this.staminaText.textContent = `体力 ${this.session.stamina} · 提示消耗 ${this.session.hintCost}`;
     this.levelTag.textContent = `Level ${this.session.level}`;
     this.mistakeText.textContent = `${this.session.mistakes}/${this.session.maxMistakes}`;
   }
 
   renderBoard(): void {
-    if (!this.session || !this.boardElement) {
-      return;
-    }
-
-    const board = this.session.board;
-    const selectedIndex = this.session.selectedIndex;
-    const prefilled = new Set(this.session.prefilledIndices);
-    const errors = new Set(this.session.errorIndices);
-    const noteMap = new Map(this.session.noteEntries.map((entry) => [entry.index, entry.values]));
-
-    const html: string[] = [];
-    for (let index = 0; index < 81; index += 1) {
-      const classes = ["cell"];
-
-      if (prefilled.has(index)) {
-        classes.push("prefilled");
-      }
-
-      if (index === selectedIndex) {
-        classes.push("selected");
-      } else if (bridge.isRelatedCell(index, selectedIndex)) {
-        classes.push("related");
-      }
-
-      if (errors.has(index)) {
-        classes.push("error");
-      }
-
-      const value = board[index];
-      const isHighlighted = this.highlightedNumber != null && value === this.highlightedNumber;
-
-      if (value !== 0) {
-        if (isHighlighted) {
-          classes.push("value-highlight");
-        }
-
-        html.push(
-          `<button type="button" class="${classes.join(" ")}" data-index="${index}"><span class="cell-value">${value}</span></button>`
-        );
-      } else {
-        const notes = noteMap.get(index) ?? [];
-        const noteGrid = Array.from({ length: 9 }, (_, offset) => {
-          const note = offset + 1;
-          const visible = notes.includes(note);
-          const highlighted = this.highlightedNumber != null && note === this.highlightedNumber;
-          return `<span class="cell-note ${visible ? "is-visible" : ""} ${highlighted ? "is-highlighted" : ""}">${
-            visible ? note : ""
-          }</span>`;
-        }).join("");
-
-        html.push(
-          `<button type="button" class="${classes.join(" ")}" data-index="${index}"><span class="cell-notes">${noteGrid}</span></button>`
-        );
-      }
-    }
-
-    this.boardElement.innerHTML = html.join("");
+    if (this.session) this.boardView?.render(this.session, this.highlightedNumber, this.settings.relatedHighlight);
   }
 
   showResult(completion: CompletionSummary): void {
@@ -430,6 +338,7 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    if (this.restartButton) this.restartButton.hidden = true;
     this.resultMode = "success";
     this.nextLevel = completion.nextLevel;
     this.resultTitle.textContent = completion.isPerfect ? "完美通关" : "通关成功";
@@ -453,12 +362,13 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    if (this.restartButton) this.restartButton.hidden = false;
     this.resultMode = "failed";
     this.nextLevel = failure.level;
     this.resultTitle.textContent = "挑战失败";
     this.resultCopy.textContent = failure.canContinue
       ? `错误达到 ${failure.maxMistakes} 次，消耗 ${failure.continueCost} 点体力可继续挑战。`
-      : `错误达到 ${failure.maxMistakes} 次，体力不足，需返回后重试。`;
+      : `错误达到 ${failure.maxMistakes} 次，体力不足，可重新开始本关。`;
     this.nextLevelButton.disabled = !failure.canContinue;
     this.nextLevelButton.textContent = failure.canContinue ? "继续挑战" : "体力不足";
     this.levelsButton.textContent = "回关卡页";
@@ -487,28 +397,6 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
-  showToastLikeFailure(title: string, message: string): void {
-    if (!this.resultCopy || !this.resultTitle || !this.resultOverlay || !this.nextLevelButton || !this.levelsButton) {
-      return;
-    }
-
-    this.resultMode = "failed";
-    this.resultTitle.textContent = title;
-    this.resultCopy.textContent = message;
-    this.nextLevelButton.disabled = true;
-    this.nextLevelButton.textContent = "不可用";
-    this.levelsButton.textContent = "回关卡页";
-    this.resultOverlay.classList.add("is-visible");
-  }
-
-  clearLongPress(): void {
-    if (this.longPressTimer) {
-      window.clearTimeout(this.longPressTimer);
-      this.longPressTimer = null;
-    }
-    this.longPressButton = null;
-  }
-
   isResultVisible(): boolean {
     if (!this.resultOverlay) {
       return false;
@@ -518,12 +406,16 @@ export class GameScene extends Phaser.Scene {
   }
 
   cleanup(): void {
+    this.events.off(Phaser.Scenes.Events.SHUTDOWN, this.onShutdown);
+    this.events.off(Phaser.Scenes.Events.DESTROY, this.onShutdown);
+    this.boardView = null;
     if (this.errorTimer) {
       window.clearTimeout(this.errorTimer);
       this.errorTimer = null;
     }
 
-    this.clearLongPress();
+    this.unbindKeypad?.();
+    this.unbindKeypad = undefined;
 
     if (this.backButton && this.onBackClick) {
       this.backButton.removeEventListener("click", this.onBackClick);
@@ -539,6 +431,7 @@ export class GameScene extends Phaser.Scene {
 
     if (this.resetButton && this.onResetClick) {
       this.resetButton.removeEventListener("click", this.onResetClick);
+      this.restartButton?.removeEventListener("click", this.onResetClick);
     }
 
     if (this.noteButton && this.onNoteModeClick) {
@@ -555,19 +448,6 @@ export class GameScene extends Phaser.Scene {
 
     if (this.boardElement && this.onBoardClick) {
       this.boardElement.removeEventListener("click", this.onBoardClick);
-    }
-
-    if (this.keypadElement && this.onKeypadClick) {
-      this.keypadElement.removeEventListener("click", this.onKeypadClick);
-    }
-
-    if (this.keypadElement && this.onKeypadDown) {
-      this.keypadElement.removeEventListener("mousedown", this.onKeypadDown);
-    }
-
-    if (this.keypadElement && this.onKeypadUp) {
-      this.keypadElement.removeEventListener("mouseup", this.onKeypadUp);
-      this.keypadElement.removeEventListener("mouseleave", this.onKeypadUp);
     }
 
     if (this.input.keyboard && this.onKeyboard) {
@@ -595,6 +475,7 @@ function gameTemplate(session: SessionSnapshot): string {
         <div class="mistake-pill icon-only-pill" aria-label="错误次数">${icon("mistake")}<strong id="mistake-count">${session.mistakes}/${session.maxMistakes}</strong></div>
       </header>
 
+      <p id="game-stamina" class="game-status"></p>
       <div id="board" class="board" role="grid" aria-label="9x9 数独棋盘"></div>
 
       <div class="tool-row" role="group" aria-label="棋盘工具">
@@ -606,12 +487,14 @@ function gameTemplate(session: SessionSnapshot): string {
 
       <div id="keypad" class="keypad" role="group" aria-label="数字键盘">${keypad}</div>
 
+      <p id="game-feedback" class="game-feedback" role="status"></p>
       <div id="result-overlay" class="result-overlay" aria-live="polite">
         <article class="result-card">
           <h3 id="result-title">通关成功</h3>
           <p id="result-copy"></p>
           <div class="modal-actions">
             <button id="next-level-button" type="button">下一关</button>
+            <button id="restart-button" type="button" hidden>重新开始</button>
             <button id="levels-button" type="button">回关卡页</button>
           </div>
         </article>

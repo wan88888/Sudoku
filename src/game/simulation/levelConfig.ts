@@ -1,3 +1,5 @@
+import levelBank from "./levelBank.json";
+
 export const TOTAL_LEVELS = 100;
 export const START_STAMINA = 20;
 export const STORAGE_KEY = "sudoku-sprint-phaser-progress-v1";
@@ -26,6 +28,16 @@ export const DIFFICULTY_BANDS: DifficultyBand[] = [
 ];
 
 export function getLevelConfig(level: number): LevelConfig {
+  const entry = levelBank[level - 1];
+  if (!Number.isInteger(level) || !entry) throw new Error("Invalid level");
+  return {
+    label: entry.label,
+    className: entry.className as DifficultyBand["className"],
+    targetClues: entry.clueCount,
+  };
+}
+
+export function getLegacyLevelConfig(level: number): LevelConfig {
   const band = DIFFICULTY_BANDS.find((entry) => level >= entry.from && level <= entry.to);
 
   if (!band) {

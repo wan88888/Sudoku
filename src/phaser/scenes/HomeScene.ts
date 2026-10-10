@@ -3,21 +3,18 @@ import { bridge } from "../runtime";
 import type { HomeModel } from "../GameBridge";
 
 export class HomeScene extends Phaser.Scene {
-  private toastTimer: number | null;
+  private readonly onShutdown = () => this.cleanup();
   private ui: Phaser.GameObjects.DOMElement | null;
   private playButton: HTMLButtonElement | null;
   private settingsButton: HTMLButtonElement | null;
-  private toast: HTMLElement | null;
   private onPlayClick?: () => void;
   private onSettingsClick?: () => void;
 
   constructor() {
     super("HomeScene");
-    this.toastTimer = null;
     this.ui = null;
     this.playButton = null;
     this.settingsButton = null;
-    this.toast = null;
   }
 
   create(): void {
@@ -28,53 +25,29 @@ export class HomeScene extends Phaser.Scene {
 
     this.playButton = getById<HTMLButtonElement>(this.ui, "play-button");
     this.settingsButton = getById<HTMLButtonElement>(this.ui, "settings-button");
-    this.toast = getById<HTMLElement>(this.ui, "home-toast");
 
     this.onPlayClick = () => {
       this.scene.start("LevelScene");
     };
 
     this.onSettingsClick = () => {
-      this.showToast("设置功能即将上线");
+      this.scene.start("SettingsScene");
     };
 
     this.playButton.addEventListener("click", this.onPlayClick);
     this.settingsButton.addEventListener("click", this.onSettingsClick);
 
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanup());
-    this.events.once(Phaser.Scenes.Events.DESTROY, () => this.cleanup());
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.onShutdown);
+    this.events.once(Phaser.Scenes.Events.DESTROY, this.onShutdown);
   }
 
   drawBackdrop(): void {
     this.add.rectangle(215, 430, 430, 860, 0xf9f4e7).setOrigin(0.5);
   }
 
-  showToast(message: string): void {
-    if (!this.toast) {
-      return;
-    }
-
-    this.toast.textContent = message;
-    this.toast.classList.add("is-visible");
-
-    if (this.toastTimer) {
-      window.clearTimeout(this.toastTimer);
-    }
-
-    this.toastTimer = window.setTimeout(() => {
-      if (!this.toast) {
-        return;
-      }
-      this.toast.classList.remove("is-visible");
-    }, 1300);
-  }
-
   cleanup(): void {
-    if (this.toastTimer) {
-      window.clearTimeout(this.toastTimer);
-      this.toastTimer = null;
-    }
-
+    this.events.off(Phaser.Scenes.Events.SHUTDOWN, this.onShutdown);
+    this.events.off(Phaser.Scenes.Events.DESTROY, this.onShutdown);
     if (this.playButton && this.onPlayClick) {
       this.playButton.removeEventListener("click", this.onPlayClick);
     }
@@ -106,7 +79,7 @@ function homeTemplate(model: HomeModel): string {
         <button id="play-button" class="play-btn" type="button">Play</button>
       </div>
 
-      <p id="home-toast" class="home-toast" aria-live="polite"></p>
+      <div class="home-footer" aria-hidden="true"></div>
     </section>
   `;
 }

@@ -1,8 +1,9 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { START_STAMINA } from "../src/game/simulation/levelConfig";
 import {
   clearActiveSession,
+  isStorageDegraded,
   loadActiveSession,
   loadProgress,
   markLevelCompleted,
@@ -68,5 +69,36 @@ describe("progressStore", () => {
     clearActiveSession();
 
     expect(loadActiveSession()).toBeNull();
+  });
+});
+
+describe('storage fallback', () => {
+  beforeEach(() => {
+    Object.defineProperty(globalThis, 'localStorage', { value: createMemoryStorage(), configurable: true });
+    loadProgress();
+  });
+
+  it('keeps the latest progress in memory after writes fail', () => {
+    saveProgress({ highestUnlocked: 1, completed: [], stamina: 20 });
+    vi.spyOn(localStorage, 'setItem').mockImplementation(() => { throw new Error('quota'); });
+    saveProgress({ highestUnlocked: 2, completed: [1], stamina: 19 });
+    expect(loadProgress()).toEqual({ highestUnlocked: 2, completed: [1], stamina: 19 });
+    expect(isStorageDegraded()).toBe(true);
+  });
+
+  it('does not resurrect a stale session when deleting it fails', () => {
+    saveActiveSession({ level: 1, targetClues: 46, board: Array(81).fill(0), selectedIndex: -1, mistakes: 0, noteEntries: [] });
+    vi.spyOn(localStorage, 'removeItem').mockImplementation(() => { throw new Error('denied'); });
+    clearActiveSession();
+    expect(loadActiveSession()).toBeNull();
+    expect(isStorageDegraded()).toBe(true);
+  });
+
+  it('continues even when accessing localStorage itself throws', () => {
+    Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw new Error('SecurityError'); } });
+    expect(() => saveProgress({ highestUnlocked: 3, completed: [1, 2], stamina: 17 })).not.toThrow();
+    expect(loadProgress().highestUnlocked).toBe(3);
+    expect(() => clearActiveSession()).not.toThrow();
+    expect(isStorageDegraded()).toBe(true);
   });
 });

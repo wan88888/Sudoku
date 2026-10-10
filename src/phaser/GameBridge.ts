@@ -89,6 +89,7 @@ export interface BridgeResult {
 }
 
 interface InternalSession {
+  boardVersion: 1 | 2;
   level: number;
   config: LevelConfig;
   puzzle: number[];
@@ -156,14 +157,19 @@ export class GameBridge {
   }
 
   startLevel(level: number): SessionSnapshot | null {
-    if (level < 1 || level > TOTAL_LEVELS || level > this.progress.highestUnlocked) {
+    if (!Number.isInteger(level) || level < 1 || level > TOTAL_LEVELS || level > this.progress.highestUnlocked) {
       return null;
     }
 
     const config = getLevelConfig(level);
-    const levelData = this.engine.getOrCreateLevel(level, config.targetClues);
+    const saved = this.activeSession?.level === level ? this.activeSession : null;
+    const boardVersion = saved && saved.boardVersion !== 2 ? 1 : 2;
+    const levelData = boardVersion === 1 && saved
+      ? this.engine.getOrCreateLegacyLevel(level, saved.targetClues)
+      : this.engine.getOrCreateLevel(level, config.targetClues);
     const ratedConfig: LevelConfig = {
       ...config,
+      targetClues: boardVersion === 1 && saved ? saved.targetClues : config.targetClues,
       label: levelData.difficulty.label,
       className: levelData.difficulty.className,
     };
@@ -171,6 +177,7 @@ export class GameBridge {
     const restoredSession = this.restoreActiveSession(level, ratedConfig, levelData.puzzle, levelData.solution);
 
     this.session = restoredSession ?? {
+      boardVersion,
       level,
       config: ratedConfig,
       puzzle: levelData.puzzle,
@@ -219,6 +226,17 @@ export class GameBridge {
       errorIndices: Array.from(this.session.errorCells),
       completed: this.session.completed,
       failed: this.session.failed,
+    };
+  }
+
+  getFailureSummary(): FailureSummary | null {
+    if (!this.session?.failed) return null;
+    return {
+      level: this.session.level,
+      mistakes: this.session.mistakes,
+      maxMistakes: GameBridge.MAX_MISTAKES,
+      continueCost: GameBridge.HINT_COST,
+      canContinue: this.progress.stamina >= GameBridge.HINT_COST,
     };
   }
 
@@ -297,9 +315,10 @@ export class GameBridge {
     this.session.errorCells.delete(index);
 
     if (this.isCurrentSolved()) {
+      const completion = this.completeCurrentLevel();
       return {
         ...this.makeResult("solved"),
-        completion: this.completeCurrentLevel(),
+        completion,
       };
     }
 
@@ -389,9 +408,10 @@ export class GameBridge {
     });
 
     if (this.isCurrentSolved()) {
+      const completion = this.completeCurrentLevel();
       return {
         ...this.makeResult("solved"),
-        completion: this.completeCurrentLevel(),
+        completion,
       };
     }
 
@@ -598,6 +618,7 @@ export class GameBridge {
     }
 
     return {
+      boardVersion: saved.boardVersion === 2 ? 2 : 1,
       level,
       config,
       puzzle: puzzle.slice(),
@@ -609,7 +630,7 @@ export class GameBridge {
       prefilled,
       errorCells: new Set(),
       completed: false,
-      failed: false,
+      failed: saved.failed === true || saved.mistakes >= GameBridge.MAX_MISTAKES,
     };
   }
 
@@ -621,6 +642,8 @@ export class GameBridge {
     }
 
     const payload: ActiveSessionState = {
+      boardVersion: this.session.boardVersion,
+      failed: this.session.failed,
       level: this.session.level,
       targetClues: this.session.config.targetClues,
       board: this.session.board.slice(),

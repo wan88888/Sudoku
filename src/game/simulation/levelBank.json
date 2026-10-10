@@ -1,0 +1,1502 @@
+[
+  {
+    "puzzle": "000000065193805070850402109971083206064017503500006910600790351005028704049350000",
+    "solution": "427139865193865472856472139971583246264917583538246917682794351315628794749351628",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 0,
+    "clueCount": 46,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 35,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "010953602000672048060100003678031520043509786902700431039005010520017090701000200",
+    "solution": "814953672395672148267148953678431529143529786952786431439265817526817394781394265",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 0,
+    "clueCount": 46,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 35,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "084690702009270081200000930728430069010056020905002010071060205500017643340500178",
+    "solution": "184693752639275481257148936728431569413956827965782314871364295592817643346529178",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 0,
+    "clueCount": 46,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 35,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "502007001870041029010529837307015008401008306280000010700052900025903764030704150",
+    "solution": "592837641873641529614529837367415298451298376289376415746152983125983764938764152",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 0,
+    "clueCount": 46,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 35,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000090702301726800000054100745938016100047083809200574006072358003000007274080690",
+    "solution": "458193762391726845627854139745938216162547983839261574916472358583619427274385691",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 1.7,
+    "clueCount": 45,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 36,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "018209500030457086457008000000005210705001039821003607086002700374506020102374060",
+    "solution": "618239574239457186457618392943765218765821439821943657586192743374586921192374865",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 1.7,
+    "clueCount": 45,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 36,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "089365247635270000004019350900108030010603700000002005046980513007031462051000078",
+    "solution": "189365247635274891724819356972158634518643729463792185246987513897531462351426978",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 1.7,
+    "clueCount": 45,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 36,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "721054900305086701968702045570003100000520004834109572683290000000475080050000010",
+    "solution": "721354968345986721968712345572843196196527834834169572683291457219475683457638219",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 1.7,
+    "clueCount": 45,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 36,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000102370873400209902783640000008500430600007700305060200834050051927483300561000",
+    "solution": "546192378873456219912783645169278534435619827728345961297834156651927483384561792",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 3.4,
+    "clueCount": 44,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 37,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "007238900940000032030049167000092506016387200200015700300004678608003450401870009",
+    "solution": "167238945945761832832549167783492516516387294294615783329154678678923451451876329",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 3.4,
+    "clueCount": 44,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 37,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "300780624420500710817000593063090470958000362004006850002963080609150200080000900",
+    "solution": "395781624426539718817642593263895471958417362174326859742963185639158247581274936",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 3.4,
+    "clueCount": 44,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 37,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "762005098010490627049000130090286370000001950137954080200760009051000700370500802",
+    "solution": "762135498513498627849627135495286371628371954137954286284763519951842763376519842",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 3.4,
+    "clueCount": 44,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 37,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "006071850040000073130008009478000316950610480060004925089200000714800002623047500",
+    "solution": "296371854845962173137458269478529316952613487361784925589236741714895632623147598",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 5.1,
+    "clueCount": 43,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "092607000706040901840290067200486103009502040000903750907860010560004279000000685",
+    "solution": "192657438756348921843291567275486193319572846684913752927865314568134279431729685",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 5.1,
+    "clueCount": 43,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "347020096800000003000074208008060310000431875010087029100750902035000061200146537",
+    "solution": "347825196852619743691374258578962314926431875413587629164753982735298461289146537",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 5.1,
+    "clueCount": 43,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "853000071206971830907005260604700009700350600095048710100507080000403100400020597",
+    "solution": "853264971246971835917835264684712359721359648395648712162597483579483126438126597",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 5.1,
+    "clueCount": 43,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "008096001009000005314002967196035078040000600702000354000009106020614503401058092",
+    "solution": "258796431679143825314582967196435278543827619782961354835279146927614583461358792",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 6.8,
+    "clueCount": 42,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 39,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "190208500500600000780403160600320095003945081400801237005190800941706050000030004",
+    "solution": "196278543534619728782453169618327495273945681459861237325194876941786352867532914",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 6.8,
+    "clueCount": 42,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 39,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "578034100490162058016000043105007092062000074000600805000290060329006407001470009",
+    "solution": "578934126493162758216785943185347692962851374734629815847293561329516487651478239",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 6.8,
+    "clueCount": 42,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 39,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "980040000045602078206700154800004397462973005070108000004300001000425600003807042",
+    "solution": "987541263145632978236789154851264397462973815379158426524396781718425639693817542",
+    "label": "新手热身",
+    "className": "easy",
+    "score": 6.8,
+    "clueCount": 42,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 39,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000020087100874650840000002308000961005010238601082045204760090006900804910240000",
+    "solution": "569123487132874659847596312328457961475619238691382745284765193756931824913248576",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 8.5,
+    "clueCount": 41,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 40,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "060390000005000600784010350006003980598740032210050700057460200020587400041030508",
+    "solution": "162395847935874621784612359476123985598746132213958764857461293329587416641239578",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 8.5,
+    "clueCount": 41,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 40,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "420108506090500470000420189900681200000970000081005907052800000849016020010750094",
+    "solution": "427198536198563472563427189974681253235974618681235947752849361849316725316752894",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 8.5,
+    "clueCount": 41,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 40,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000500100008079020700002506580010260326857900104000005071493002040600000065701439",
+    "solution": "432568197658179324719342586587914263326857941194236875871493652943625718265781439",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 10.2,
+    "clueCount": 40,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 41,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "086003070004060305230741000090602050623017000000009203862005400357090002100800537",
+    "solution": "986253174714968325235741896498632751623517948571489263862375419357194682149826537",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 10.2,
+    "clueCount": 40,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 41,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "810400307090618254004000016705000480480520000609100725002300508040079000063045000",
+    "solution": "816452397397618254254793816725936481481527639639184725972361548548279163163845972",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 10.2,
+    "clueCount": 40,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 41,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "060907143007040026000600000089400012000206908100859374008794030000068007004130005",
+    "solution": "265987143897341526431625789589473612743216958126859374658794231312568497974132865",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 11.9,
+    "clueCount": 39,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 42,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "409250836000097010210603004000800309801036040900070028096140000080700451054020000",
+    "solution": "479251836638497512215683974547812369821936745963574128796145283382769451154328697",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 11.9,
+    "clueCount": 39,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 42,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "001062304005870609002405700309000206010020003008300040040080005096140802087006430",
+    "solution": "871962354435871629962435718359714286714628593628359147143287965596143872287596431",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 13.6,
+    "clueCount": 38,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 43,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "207006000004070163010048500000065018130400000076081400000893205389000600405000839",
+    "solution": "257136984894572163613948527942765318138429756576381492761893245389254671425617839",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 13.6,
+    "clueCount": 38,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 43,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "780903056003260048005004000500000009406098502008501407030059000150600000042007195",
+    "solution": "784913256913265748265784931521476389476398512398521467837159624159642873642837195",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 13.6,
+    "clueCount": 38,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 43,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "037090050204000098190052630000067010000310009800920060380109000502003900940200380",
+    "solution": "637891254254736198198452637429567813765318429813924765386149572572683941941275386",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 15.3,
+    "clueCount": 37,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 44,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "100542080000316524052708060090005400610000038047003056500000010729830000001000200",
+    "solution": "136542789978316524452798361893165472615427938247983156564279813729831645381654297",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 15.3,
+    "clueCount": 37,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 44,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000106542524009008081020007840900000009017800006548003000060105100090370000801020",
+    "solution": "973186542524379618681425937845932761239617854716548293492763185158294376367851429",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 17,
+    "clueCount": 36,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "080340021000670300450000008502700000004209000160080050901864500008002000320190864",
+    "solution": "786345921219678345453921678592716483834259716167483259971864532648532197325197864",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 17,
+    "clueCount": 36,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "710040008208709000003008710002007400080090137137400002361820005004070360005000000",
+    "solution": "719643258258719643643258719592137486486592137137486592361824975824975361975361824",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 17,
+    "clueCount": 36,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "032890004460012009005040000000000000000080956821509000700403810510070340003100097",
+    "solution": "132895764467312589985647231659734128374281956821569473796423815518976342243158697",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 18.7,
+    "clueCount": 35,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 46,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000009070860100090000600430746001950300890700005400000000060129630012080092000603",
+    "solution": "413529876867143295259687431746231958321895764985476312578364129634912587192758643",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 20.4,
+    "clueCount": 34,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 47,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "073982060000040000560730090001026040680000030005309006420070010357000024009200000",
+    "solution": "173982465298645371564731892931826547682457139745319286426573918357198624819264753",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 20.4,
+    "clueCount": 34,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 47,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "970064002821370050400100030090000060086093000547000309008957001000002705000400000",
+    "solution": "973564812821379456465128937392745168186293574547681329238957641614832795759416283",
+    "label": "稳定推进",
+    "className": "normal",
+    "score": 20.4,
+    "clueCount": 34,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 47,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000000470518000009402900508003580004020300700705006000000049001831750000946000200",
+    "solution": "369815472518274369472963518193587624624391785785426193257649831831752946946138257",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 22.1,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 48,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000500000089012645004000210006007004502060030013025069000081002027609180000000000",
+    "solution": "271546398389712645654893217896137524542968731713425869965381472427659183138274956",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 22.1,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 48,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "050301600000067400000940031008603000704809063000000580000190000307004018901000204",
+    "solution": "459381627813267495672945831598613742724859163136472589245198376367524918981736254",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 22.1,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 48,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "300800064802100005064075892000000621000000703601043000509280000080007530000000080",
+    "solution": "375892164892164375164375892743958621958621743621743958539286417286417539417539286",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 22.1,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 48,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "610052000384916070207400090000005827000300000090008000020009006005804913001500000",
+    "solution": "619752348384916275257483691143695827872341569596278134428139756765824913931567482",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 22.1,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 48,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000030001061007020038005000380210000600540800005083002006978010103654700809301540",
+    "solution": "794832651561497328238165974387216495612549837945783162456978213123654789879321546",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 22.6,
+    "clueCount": 38,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 5,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000802090000050004509614300000000805600785040800401000701006200080170000460500009",
+    "solution": "146832597328957164579614382914263875632785941857491623791346258285179436463528719",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 23.8,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 49,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "050920003629000851000051000000697340090040002003000600000064038800200004060500200",
+    "solution": "158926473629473851374851926281697345796345182543182697912764538835219764467538219",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 23.8,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 49,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "200010690134006020906508000062030000040002108001000050000083040007960002023100000",
+    "solution": "258314697134796825976528413562831974749652138381479256695283741417965382823147569",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 23.8,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 49,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "470000600000045920010000507064502009890604000102000076000360000040008003607450000",
+    "solution": "475129638386745921219836547764512389893674215152983476928367154541298763637451892",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 23.8,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 49,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "900083042704090000800200906039000270000020000007000504080040029070902360100006050",
+    "solution": "961583742724691835853274916639458271548127693217369584386745129475912368192836457",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 23.8,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 49,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000060090000000053948005071200000080001500300673008020005001042000200006029050710",
+    "solution": "532167894716489253948325671254736189891542367673918425365871942187294536429653718",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 25.5,
+    "clueCount": 31,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 50,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "020308040000000003009007100600000000905024008400830007007010006540602000268070510",
+    "solution": "126398745754261893839547162683759421975124638412836957397415286541682379268973514",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 25.5,
+    "clueCount": 31,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 50,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "800000001400000690902413500006100970000059400000000010000640038000502004014080209",
+    "solution": "857926341431875692962413587246138975183759426795264813529641738378592164614387259",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 25.5,
+    "clueCount": 31,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 50,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "002070000100004086680050230826009050901040620000000009208000315000400007009000000",
+    "solution": "432876591195324786687951234826719453971543628354268179248697315513482967769135842",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 27.2,
+    "clueCount": 30,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 51,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "068070050002038000000000063580000021020000746600009300235006190070040502000000000",
+    "solution": "368174259952638417714592863583467921129853746647219385235786194876941532491325678",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 27.2,
+    "clueCount": 30,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 51,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "179020060000009002000356090000160270020548100010000004001402058000080010065001007",
+    "solution": "179824365536719842284356791458163279927548136613297584391472658742685913865931427",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 27.5,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 3,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000006501700800203008930007200000805080100406003000000015200008006590320000000050",
+    "solution": "329476581764815293158932647291364875587129436643758912915243768876591324432687159",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 28.9,
+    "clueCount": 29,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 52,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "082010500410500090000000040093042070001390000200007009000400615000023007000000930",
+    "solution": "982714563417536298635289741593842176761395824248167359329478615156923487874651932",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 28.9,
+    "clueCount": 29,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 52,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000540608500806231060000900750020104000401067400760000930650000045000309208900456",
+    "solution": "123549678594876231867132945756328194382491567419765823931654782645287319278913456",
+    "label": "进阶挑战",
+    "className": "hard",
+    "score": 29.8,
+    "clueCount": 38,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 34,
+      "hiddenSingles": 9,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000037020000000830308400001600000040401005900000002705900004300703090500005000208",
+    "solution": "516837429294651837378429651657983142421765983839142765982514376763298514145376298",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 30.6,
+    "clueCount": 28,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 53,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "015000260007000030300207005030002001002000050740300000004000896980000513000000004",
+    "solution": "415938267627145938398267145539682471862471359741359682274513896986724513153896724",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 30.6,
+    "clueCount": 28,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 53,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "308050000001000908040030000000000896470006020000020045052004000004319070030070000",
+    "solution": "398251467521467938647938251213745896475896123986123745752684319864319572139572684",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 30.6,
+    "clueCount": 28,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 53,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "009030080600007000780490020015000702200108000090072500000703050004029003070040260",
+    "solution": "549236187623817945781495326815964732237158694496372518962783451154629873378541269",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 31,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 4,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "928040015701090406060501902200100078000300640010007003000716000005002007000000304",
+    "solution": "928643715751298436463571982239164578587329641614857293342716859895432167176985324",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 31.2,
+    "clueCount": 34,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 41,
+      "hiddenSingles": 6,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "600800000007004610000090500008500900000000000253410000800000100100960005305200890",
+    "solution": "619875432587324619432196587768532941941687253253419768896753124124968375375241896",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 32.3,
+    "clueCount": 27,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 54,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "028005300304080019010040000043870000600902000090031000002010076006520900900704000",
+    "solution": "728195364364287519519643728143876295687952143295431687852319476476528931931764852",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 32.8,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 44,
+      "hiddenSingles": 5,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "291000300000000004045308019000400000400065930806907001004700190139000006760003000",
+    "solution": "291654378387219654645378219973421865412865937856937421524786193139542786768193542",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 32.9,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 42,
+      "hiddenSingles": 6,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "002008001000300620000040800005600487470500002126804953009000008001402700004057306",
+    "solution": "642798531897315624513246879935621487478539162126874953759163248361482795284957316",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 33.2,
+    "clueCount": 36,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 36,
+      "hiddenSingles": 9,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "170904500002000600000800000001009305600500000000040090497006000080010000000407802",
+    "solution": "173964528852173649964852731741629385629538417538741296497286153286315974315497862",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 34,
+    "clueCount": 26,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 55,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "700000100042000000000530940300062000216000000870940000000800000087305001000010600",
+    "solution": "753429168942681753168537942394162875216758394875943216421876539687395421539214687",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 34,
+    "clueCount": 26,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 55,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "090430800000080000001000002000001930050020701716005204160000070030048106007000020",
+    "solution": "695432817324187659871569342248671935953824761716395284169253478532748196487916523",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 34.4,
+    "clueCount": 30,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 47,
+      "hiddenSingles": 4,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "049000300000700000000018090495600000000050030023001459100900200950083000230100065",
+    "solution": "749526318381794526562318794495632871817459632623871459174965283956283147238147965",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 34.5,
+    "clueCount": 31,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 5,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "893620540100070000500900000078309000000084030901000000300040080254007016080000050",
+    "solution": "893621547162475893547938162478319625625784931931256478316542789254897316789163254",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 34.5,
+    "clueCount": 31,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 45,
+      "hiddenSingles": 5,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "067830205200064000008000400082405000601200000590000028013028004025640701046000802",
+    "solution": "467831295259764183138952476382495617671283549594176328713528964825649731946317852",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 35.1,
+    "clueCount": 37,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 33,
+      "hiddenSingles": 11,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "090000100005000040076035020100002070000800600002000813009000200000000057000280400",
+    "solution": "298746135315928746476135928183692574754813692962574813649357281821469357537281469",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 35.7,
+    "clueCount": 25,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 56,
+      "hiddenSingles": 0,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "908070040004006075027040080080000032000200000200190750491000000000000568806700004",
+    "solution": "968572143314986275527341689189657432675234891243198756491865327732419568856723914",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 36.3,
+    "clueCount": 31,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 44,
+      "hiddenSingles": 6,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "062854000500930000391000085056008900200006000000720004000290000007085020900407010",
+    "solution": "762854193584931267391672485456318972279546831138729654815293746647185329923467518",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 36.4,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 42,
+      "hiddenSingles": 7,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000007304130005670708000009006378042070200090000059080081502967200096000000100000",
+    "solution": "529867314134925678768431259956378142873214596412659783381542967245796831697183425",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 36.6,
+    "clueCount": 34,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 9,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "030010289500000703008000510009630007620040005000805032067950328905300070300006951",
+    "solution": "736514289541289763298763514859632147623147895174895632467951328915328476382476951",
+    "label": "专家试炼",
+    "className": "expert",
+    "score": 37.1,
+    "clueCount": 39,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 28,
+      "hiddenSingles": 14,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "651003000007005930000000001000010000800406090005002000416008302080000006300040080",
+    "solution": "651893247247165938938724651764519823823476195195382764416958372589237416372641589",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 37.7,
+    "clueCount": 27,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 51,
+      "hiddenSingles": 3,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "050049073000630008000005200080504006002963781900000540000000000307002460000070825",
+    "solution": "158249673294637158673185294781524936542963781936718542825496317317852469469371825",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 40.1,
+    "clueCount": 33,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 38,
+      "hiddenSingles": 10,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "300000500004905000009002010500020070003008406701000903000000000015006080960700000",
+    "solution": "328417569174965238659832714546329871293178456781654923837541692415296387962783145",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 43,
+    "clueCount": 26,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 50,
+      "hiddenSingles": 5,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "870190365000700000210000004098000070000067008740900030521600097000800200087005000",
+    "solution": "874192365635748129219356784198523476352467918746981532521634897463879251987215643",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 45.4,
+    "clueCount": 32,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 37,
+      "hiddenSingles": 12,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "076000000305000800040000276050069000000854000003000400100405000500020107020780004",
+    "solution": "276148395395672841841593276458369712712854963963217458187435629534926187629781534",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 46.8,
+    "clueCount": 28,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 44,
+      "hiddenSingles": 9,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000806000000100705430009860700008200800201374060000000289610050000000000570000600",
+    "solution": "957826143628134795431759862743598216895261374162347589289613457316475928574982631",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 48.7,
+    "clueCount": 29,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 41,
+      "hiddenSingles": 11,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "060200030270800009005000274006027400080000020000403500000001690000690700002008050",
+    "solution": "169274835274835169835169274516927483483516927927483516748351692351692748692748351",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 50.5,
+    "clueCount": 29,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 40,
+      "hiddenSingles": 12,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000000300006000109094063007060209000000080002001000700000000050000100600415300090",
+    "solution": "872941365356728149194563827768219534543687912921435786637892451289154673415376298",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 53.6,
+    "clueCount": 24,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 48,
+      "hiddenSingles": 9,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000000327180000904000905000000000003204598000600204500429000000050063000000000800",
+    "solution": "945186327186372954372945168598617243234598671617234589429851736851763492763429815",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 55.6,
+    "clueCount": 26,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 43,
+      "hiddenSingles": 12,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "005030900000002370000008052040250000000170406971000500000000007080007090023914800",
+    "solution": "265731948894562371137498652648253719352179486971846523419685237586327194723914865",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 57.8,
+    "clueCount": 30,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 34,
+      "hiddenSingles": 17,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "080600500700009300091200760060000000003080000000500901008000600204005000009800007",
+    "solution": "382674519746159328591238764465391872913782456827546931138427695274965183659813247",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 60.9,
+    "clueCount": 25,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 42,
+      "hiddenSingles": 14,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "200000004001350000043000906000541723400070000000060051000010300090700060050600109",
+    "solution": "278196534961354287543827916689541723415273698732968451826419375194735862357682149",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 64.9,
+    "clueCount": 29,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 32,
+      "hiddenSingles": 20,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "870045200000900000000006080028070050500002009090100000200500000000000708310020000",
+    "solution": "879345216162987345453216987628479153531862479794153862287594631945631728316728594",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 69.8,
+    "clueCount": 24,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 39,
+      "hiddenSingles": 18,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000010300500004000010000027000009005060057042300400900006080000000000014702006000",
+    "solution": "274618359593274861618593427421869735869357142357421986146985273985732614732146598",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 77,
+    "clueCount": 24,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 35,
+      "hiddenSingles": 22,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000000005050200064800170000000086007001000580060300000900600000024050000005901000",
+    "solution": "239864175157293864846175293492586317371429586568317429913642758624758931785931642",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 91.4,
+    "clueCount": 24,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 27,
+      "hiddenSingles": 30,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "200030800301000609000900104080007201402050000000000058070210000000065900120000500",
+    "solution": "296431875341578629758926134583697241412853796967142358675219483834765912129384567",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 105.4,
+    "clueCount": 28,
+    "solvedWithoutGuess": false,
+    "remainingEmptyCells": 24,
+    "techniques": {
+      "nakedSingles": 15,
+      "hiddenSingles": 14,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "000000010023970000000120800001000078009000100004650900000390600000500700397800001",
+    "solution": "978465312123978546465123897651239478239784165784651923512397684846512739397846251",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 122.9,
+    "clueCount": 27,
+    "solvedWithoutGuess": false,
+    "remainingEmptyCells": 43,
+    "techniques": {
+      "nakedSingles": 3,
+      "hiddenSingles": 8,
+      "lockedCandidates": 0
+    }
+  },
+  {
+    "puzzle": "002040000000009100400006095007000000280005040000900751010890000008572000700000000",
+    "solution": "592147368863259174471386295157634982289715643346928751614893527938572416725461839",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 130.5,
+    "clueCount": 25,
+    "solvedWithoutGuess": true,
+    "remainingEmptyCells": 0,
+    "techniques": {
+      "nakedSingles": 21,
+      "hiddenSingles": 34,
+      "lockedCandidates": 14
+    }
+  },
+  {
+    "puzzle": "000710005000000629005000000020050000900006007007408006001004370702581000000300580",
+    "solution": "269713845173845629485629713326157498948236157517498236851964372732581964694372581",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 133.4,
+    "clueCount": 28,
+    "solvedWithoutGuess": false,
+    "remainingEmptyCells": 35,
+    "techniques": {
+      "nakedSingles": 8,
+      "hiddenSingles": 9,
+      "lockedCandidates": 9
+    }
+  },
+  {
+    "puzzle": "000000071268090050000000600900200000007000800000016090000900000300078000050000086",
+    "solution": "543862971268197453791345628935284167617539842482716395876951234324678519159423786",
+    "label": "大师冲刺",
+    "className": "master",
+    "score": 180.4,
+    "clueCount": 22,
+    "solvedWithoutGuess": false,
+    "remainingEmptyCells": 42,
+    "techniques": {
+      "nakedSingles": 0,
+      "hiddenSingles": 16,
+      "lockedCandidates": 15
+    }
+  }
+]

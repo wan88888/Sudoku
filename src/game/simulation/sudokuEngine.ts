@@ -1,4 +1,5 @@
 import { analyzePuzzleDifficulty, type DifficultyAnalysis } from "./difficultyAnalyzer";
+import levelBank from "./levelBank.json";
 
 type Rng = () => number;
 type Grid = number[][];
@@ -17,7 +18,15 @@ export class SudokuEngine {
     this.levelCache = new Map();
   }
 
-  getOrCreateLevel(level: number, targetClues: number): LevelBoard {
+  getOrCreateLevel(level: number, _targetClues?: number): LevelBoard {
+    const entry = levelBank[level - 1];
+    if (!Number.isInteger(level) || !entry) throw new Error("Invalid level");
+    const puzzle = Array.from(entry.puzzle, Number);
+    const solution = Array.from(entry.solution, Number);
+    return { puzzle, solution, difficulty: analyzePuzzleDifficulty(puzzle, solution) };
+  }
+
+  getOrCreateLegacyLevel(level: number, targetClues: number): LevelBoard {
     const key = `${level}-${targetClues}`;
 
     if (!this.levelCache.has(key)) {

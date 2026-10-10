@@ -3,6 +3,7 @@ import { bridge } from "../runtime";
 import { trackEvent } from "../../game/analytics/telemetry";
 
 export class LevelScene extends Phaser.Scene {
+  private readonly onShutdown = () => this.cleanup();
   private ui: Phaser.GameObjects.DOMElement | null;
   private levelList: HTMLElement | null;
   private staminaValue: HTMLElement | null;
@@ -64,8 +65,8 @@ export class LevelScene extends Phaser.Scene {
 
     this.renderLevelList();
 
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanup());
-    this.events.once(Phaser.Scenes.Events.DESTROY, () => this.cleanup());
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.onShutdown);
+    this.events.once(Phaser.Scenes.Events.DESTROY, this.onShutdown);
   }
 
   renderLevelList(): void {
@@ -147,6 +148,8 @@ export class LevelScene extends Phaser.Scene {
   }
 
   cleanup(): void {
+    this.events.off(Phaser.Scenes.Events.SHUTDOWN, this.onShutdown);
+    this.events.off(Phaser.Scenes.Events.DESTROY, this.onShutdown);
     if (this.homeButton && this.onHomeClick) {
       this.homeButton.removeEventListener("click", this.onHomeClick);
     }

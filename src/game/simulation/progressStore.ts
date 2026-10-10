@@ -1,6 +1,64 @@
 import { START_STAMINA, STORAGE_KEY, TOTAL_LEVELS, clamp } from "./levelConfig";
 
 const ACTIVE_SESSION_STORAGE_KEY = `${STORAGE_KEY}-active-session`;
+export const STORAGE_STATUS_EVENT = "sudoku-storage-status";
+let backend: Storage | undefined;
+let memoryOnly = false;
+const memory = new Map<string, string | null>();
+
+function getStorage(): Storage | undefined {
+  try {
+    const storage = globalThis.localStorage;
+    if (storage && backend !== storage) {
+      backend = storage;
+      memory.clear();
+      memoryOnly = false;
+    }
+    return storage;
+  } catch {
+    degradeStorage();
+    return undefined;
+  }
+}
+
+function degradeStorage(): void {
+  memoryOnly = true;
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event(STORAGE_STATUS_EVENT));
+  }
+}
+
+export function isStorageDegraded(): boolean {
+  return memoryOnly;
+}
+
+export function readStored(key: string): string | null {
+  const storage = getStorage();
+  if (memoryOnly && memory.has(key)) return memory.get(key) ?? null;
+  try {
+    if (!storage) throw new Error("Storage unavailable");
+    const value = storage.getItem(key);
+    memory.set(key, value);
+    return value;
+  } catch {
+    degradeStorage();
+    return memory.get(key) ?? null;
+  }
+}
+
+// Keep a tombstone for removals so a failed delete cannot resurrect an old save.
+export function writeStored(key: string, value: string | null): void {
+  const storage = getStorage();
+  memory.set(key, value);
+  if (memoryOnly) return;
+  try {
+    if (!storage) throw new Error("Storage unavailable");
+    if (value === null) storage.removeItem(key);
+    else storage.setItem(key, value);
+  } catch {
+    degradeStorage();
+  }
+}
 
 export interface ProgressState {
   highestUnlocked: number;
@@ -9,6 +67,8 @@ export interface ProgressState {
 }
 
 export interface ActiveSessionState {
+  boardVersion?: 1 | 2;
+  failed?: boolean;
   level: number;
   targetClues: number;
   board: number[];
@@ -24,6 +84,8 @@ interface PersistedProgress {
 }
 
 interface PersistedActiveSession {
+  boardVersion?: unknown;
+  failed?: unknown;
   level?: unknown;
   targetClues?: unknown;
   board?: unknown;
@@ -36,7 +98,7 @@ export function loadProgress(): ProgressState {
   const fallback: ProgressState = { highestUnlocked: 1, completed: [], stamina: START_STAMINA };
 
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = readStored(STORAGE_KEY);
     if (!raw) {
       return fallback;
     }
@@ -73,12 +135,12 @@ export function loadProgress(): ProgressState {
 }
 
 export function saveProgress(progress: ProgressState): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  writeStored(STORAGE_KEY, JSON.stringify(progress));
 }
 
 export function loadActiveSession(): ActiveSessionState | null {
   try {
-    const raw = localStorage.getItem(ACTIVE_SESSION_STORAGE_KEY);
+    const raw = readStored(ACTIVE_SESSION_STORAGE_KEY);
     if (!raw) {
       return null;
     }
@@ -140,6 +202,8 @@ export function loadActiveSession(): ActiveSessionState | null {
     }
 
     return {
+      ...(parsed.boardVersion === 2 ? { boardVersion: 2 as const } : {}),
+      ...(typeof parsed.failed === "boolean" ? { failed: parsed.failed } : {}),
       level,
       targetClues,
       board,
@@ -153,11 +217,11 @@ export function loadActiveSession(): ActiveSessionState | null {
 }
 
 export function saveActiveSession(session: ActiveSessionState): void {
-  localStorage.setItem(ACTIVE_SESSION_STORAGE_KEY, JSON.stringify(session));
+  writeStored(ACTIVE_SESSION_STORAGE_KEY, JSON.stringify(session));
 }
 
 export function clearActiveSession(): void {
-  localStorage.removeItem(ACTIVE_SESSION_STORAGE_KEY);
+  writeStored(ACTIVE_SESSION_STORAGE_KEY, null);
 }
 
 export function markLevelCompleted(progress: ProgressState, level: number): ProgressState {
